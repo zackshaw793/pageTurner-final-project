@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import AddToList from './AddToList';
-import ReadingList from './ReadingList';
-import Button from 'react-bootstrap/Button';
 import  Card  from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+// One source of truth for the API_URL.
+
 const API_URL = 'https://openlibrary.org/search.json?title=';
 
 
-    
+  // The GetBooks component is a functional component that uses the useState hook to manage state.  
 
     const GetBooks = () => { 
         
@@ -34,12 +34,15 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
 
             const addToReadingList = (book) => { 
                 setReadingList([...readingList, book]);
+                console.log(readingList);
             };
 
         useEffect(() => { 
             fetchBooks('')
         }, []);
                         
+
+        // The return statement renders the SearchBar component and the list of books returned from the API call after a user search.
 
         return (
             <Container>
@@ -51,7 +54,7 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                                 <Card 
                                     key={book.key}
                                     style={{width: '315px', 
-                                            height: '570px', 
+                                            height: '570px',  
                                             margin: '20px',
                                             borderRadius: '16px'}}>
                                     <Card.Body className='d-flex flex-column justify-content-center align-items-center'>
@@ -62,6 +65,7 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                                                 src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}/>
                                         <Card.Title>{book.title}</Card.Title>
                                         <Card.Text>{book.author_name}</Card.Text>
+                                        {/* The AddToList component is rendered here. */}
                                         <AddToList book={book} addToReadingList={addToReadingList}/>
                                     </Card.Body>
                                 </Card>
@@ -70,9 +74,6 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <ReadingList readingList={readingList}/>
-                    </Col>
                 </Row>
             </Container>
         )

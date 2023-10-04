@@ -17,12 +17,13 @@ const SearchBar = ({ onSearch }) => {
     <Card style={{ width: 'auto', 
                    display: 'block', 
                    borderRadius: '16px',
-                   marginTop: '25px'}}>
+                   marginTop: '25px',
+                   padding: '7px'}}>
         <Card.Body style={{ alignContent: 'center', 
                             justifyContent: 'center', 
                             background: 'white', 
                             borderRadius: '16px'}}>
-            <InputGroup className='mb-3 mt-3'>
+            <InputGroup className='mb-3 mt-3' id='search-bar'>
                 <FormControl
                     placeholder='Find a book...'
                     value={searchQuery}
