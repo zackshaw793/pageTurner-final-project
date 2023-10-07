@@ -5,10 +5,14 @@ import  Card  from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 
 // One source of truth for the API_URL.
 
 const API_URL = 'https://openlibrary.org/search.json?title=';
+
 
 
   // The GetBooks component is a functional component that uses the useState hook to manage state.  
@@ -17,6 +21,11 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
         
         const [books, setBooks] = useState([]);
         const [readingList, setReadingList] = useState([]);
+        const [show, setShow] = useState(false);
+
+        const handleClose = () => setShow(false);
+
+        const handleShow = () => setShow(true);
 
     
             const fetchBooks = async (searchQuery) => { 
@@ -33,13 +42,10 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
             };
 
             const addToReadingList = (book) => { 
-                setReadingList([...readingList, book]);
-                console.log(readingList);
+                handleShow();
+                setReadingList(book.key.title); 
+                console.log(book);
             };
-
-        useEffect(() => { 
-            fetchBooks('')
-        }, []);
                         
 
         // The return statement renders the SearchBar component and the list of books returned from the API call after a user search.
@@ -71,9 +77,20 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                                 </Card>
                             ))}
                         </div>
+                    
+                    
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Added to Reading List</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>{books.title}</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Continue browsing...
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                     </Col>
-                </Row>
-                <Row>
                 </Row>
             </Container>
         )

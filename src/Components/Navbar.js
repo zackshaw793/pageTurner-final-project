@@ -13,7 +13,7 @@ export default class Navigation extends React.Component {
   return (
     <Router>
     <div>
-    <Navbar expand="lg" className="bg-body-tertiary" style={{borderRadius: '16px', padding: '50px'}}>
+    <Navbar expand="lg" className="bg-body-tertiary shadow" style={{borderRadius: '16px', padding: '50px'}}>
       <Container>
         <Navbar.Brand as={Link} to={'/'} id='brand-name'>pageTurner</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

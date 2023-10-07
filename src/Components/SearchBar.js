@@ -18,7 +18,7 @@ const SearchBar = ({ onSearch }) => {
                    display: 'block', 
                    borderRadius: '16px',
                    marginTop: '25px',
-                   padding: '7px'}}>
+                   padding: '7px'}} className='shadow p-2'>
         <Card.Body style={{ alignContent: 'center', 
                             justifyContent: 'center', 
                             background: 'white', 
@@ -26,6 +26,7 @@ const SearchBar = ({ onSearch }) => {
             <InputGroup className='mb-3 mt-3' id='search-bar'>
                 <FormControl
                     placeholder='Find a book...'
+                    id='search-bar'
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
