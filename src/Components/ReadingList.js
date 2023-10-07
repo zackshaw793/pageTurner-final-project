@@ -31,6 +31,14 @@ const ReadingList = () => {
     };
 
     const handleFavorite = (id, favorited) => {
+        const updatedReadingList = readingList.map((book) => {
+            if (book.id === id) {
+                return { ...book, favorited: !favorited};
+            }
+            return book;
+        });
+        
+        
         fetch(`${MOCK_API_URL}/${id}`, {
             method: 'PUT',
             headers: {
@@ -38,7 +46,7 @@ const ReadingList = () => {
             },
             body: JSON.stringify({ favorited: !favorited }),
         }).then(() => {
-            setReadingList((prevList) => prevList.map((book) => book.id === id ? { ...book, favorited: !favorited } : book));
+            setReadingList(updatedReadingList);
         });
     };
 
@@ -49,10 +57,10 @@ return (
                 <Row>
                     <Col>
                         <ReadingHeader />
-                        <div className='book-list' style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
+                        <ul className='book-list' style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
                             {readingList.map((book) => (
+                                <li key={book.id}>
                                 <Card 
-                                    key={book.id}
                                     style={{width: '315px', 
                                             height: '570px',  
                                             margin: '20px',
@@ -67,26 +75,27 @@ return (
                                         <Card.Title>{book.title}</Card.Title>
                                         <Card.Text>{book.author_name}</Card.Text>
                                         <div className='d-flex gap-1'>
-                                        <ButtonGroup toggle>
+                                        <ButtonGroup toggle='true'>
                                             <ToggleButton
-                                                    id='favorite-button'
+                                                    id={book.id}
                                                     type='checkbox'
                                                     variant='outline-danger'
                                                     checked={book.favorited}
                                                     value='1'
-                                                    onChange={(e) => handleFavorite(book.id, book.favorited)} 
+                                                    onChange={() => handleFavorite(book.id, book.favorited)} 
                                                     >
-                                                {book.favorited ? 'Favorite' : 'Unfavorite'}
+                                                {book.favorited ? '<3' : '</3'}
                                                     </ToggleButton>
                                         </ButtonGroup>
-                                        <Button variant='outline-secondary' style={{}} onClick={() => handleDelete(book.id)}>
+                                        <Button variant='outline-secondary' onClick={() => handleDelete(book.id)}>
                                             Read
                                         </Button>
                                         </div>
                                     </Card.Body>
                                 </Card>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                     </Col>
                 </Row>
                 <Row>

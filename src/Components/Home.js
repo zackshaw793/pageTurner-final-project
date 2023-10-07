@@ -5,8 +5,8 @@ import  Card  from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import HomeHeader from './HomeHeader';
+import FooterComponent from './Footer';
 
 
 // One source of truth for the API_URL.
@@ -21,11 +21,6 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
         
         const [books, setBooks] = useState([]);
         const [readingList, setReadingList] = useState([]);
-        const [show, setShow] = useState(false);
-
-        const handleClose = () => setShow(false);
-
-        const handleShow = () => setShow(true);
 
     
             const fetchBooks = async (searchQuery) => { 
@@ -42,10 +37,10 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
             };
 
             const addToReadingList = (book) => { 
-                handleShow();
-                setReadingList(book.key.title); 
+                setReadingList(book.id); 
                 console.log(book);
             };
+
                         
 
         // The return statement renders the SearchBar component and the list of books returned from the API call after a user search.
@@ -54,6 +49,7 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
             <Container>
                 <Row>
                     <Col>
+                        <HomeHeader />
                         <SearchBar onSearch={fetchBooks} />
                         <div className='book-list' style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
                             {books.map((book) => (
@@ -77,23 +73,12 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                                     </Card.Body>
                                 </Card>
                             ))}
-                        </div>
-                    
-                    
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Added to Reading List</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>{books.title}</Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="outline-secondary" onClick={handleClose}>
-                                Continue browsing...
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+                        </div>                    
                     </Col>
                 </Row>
+                <FooterComponent /> 
             </Container>
+           
         )
 
     }

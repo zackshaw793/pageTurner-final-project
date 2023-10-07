@@ -17,11 +17,13 @@ const SearchBar = ({ onSearch }) => {
     <Card style={{ width: 'auto', 
                    display: 'block', 
                    borderRadius: '16px',
-                   marginTop: '50px',
+                   marginTop: '35px',
+                   marginBottom: '50px',
                    padding: '7px'}} className='shadow p-2'>
         <Card.Body style={{ alignContent: 'center', 
                             justifyContent: 'center', 
-                            background: 'white', 
+                            background: 'white',
+                            border: 'none', 
                             borderRadius: '16px'}}>
             <InputGroup className='mb-3 mt-3' id='search-bar'>
                 <FormControl

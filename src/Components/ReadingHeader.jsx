@@ -9,9 +9,10 @@ const ReadingHeader = () => {
                            justify-content-center 
                            align-items-center
                            mt-5
-                           shadow p-2' style={{background: 'white',
+                           p-5' style={{background: 'white',
                                          borderRadius: '16px',
-                                         padding: '25px'}}>
+                                         padding: '25px',
+                                         fontSize: '10.5vw'}}>
                 myBooks</h1>
         </div>
     );
