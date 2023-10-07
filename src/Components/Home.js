@@ -62,7 +62,8 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                                     style={{width: '315px', 
                                             height: '570px',  
                                             margin: '20px',
-                                            borderRadius: '16px'}}>
+                                            borderRadius: '16px',
+                                            boxShadow: '2px 2px 8px gray'}}>
                                     <Card.Body className='d-flex flex-column justify-content-center align-items-center'>
                                         <Card.Img
                                                 width='300px 100%'
@@ -85,7 +86,7 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                         </Modal.Header>
                         <Modal.Body>{books.title}</Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
+                            <Button variant="outline-secondary" onClick={handleClose}>
                                 Continue browsing...
                             </Button>
                         </Modal.Footer>

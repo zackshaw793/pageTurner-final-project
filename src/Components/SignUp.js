@@ -5,13 +5,13 @@ export default class SignUp extends Component {
     render() {
     return (
         <div>
-            <Container>
+            <Container style={{marginTop: '-140px'}}>
                 <Row className='vh-100 d-flex justify-content-center align-items-center'>
                     <Col md={8} lg={6} xs={12}>
                         <div className='border border-0 border-secondary'></div>
                         <Card className='shadow p-5'>
                             <Card.Body>
-                                <div className='mb-3 mt-md-10'>
+                                <div className='mt-15'>
                                     <h2 className='fw-bold mb-2'>pageTurner</h2>
                                     <p className='mb-5'>Please enter a valid email address and password.</p>
                                     <div className='mb-3'>

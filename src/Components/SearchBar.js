@@ -17,7 +17,7 @@ const SearchBar = ({ onSearch }) => {
     <Card style={{ width: 'auto', 
                    display: 'block', 
                    borderRadius: '16px',
-                   marginTop: '25px',
+                   marginTop: '50px',
                    padding: '7px'}} className='shadow p-2'>
         <Card.Body style={{ alignContent: 'center', 
                             justifyContent: 'center', 
@@ -30,7 +30,7 @@ const SearchBar = ({ onSearch }) => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <Button variant='secondary' onClick={handleSearch}>
+                <Button variant='outline-secondary' onClick={handleSearch}>
                     Search
                 </Button>
             </InputGroup>

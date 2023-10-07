@@ -56,7 +56,7 @@ const postToMockApi = () => {
     }, []);
 
     return ( 
-        <Button variant='secondary' onClick={handleAddToList}>
+        <Button variant='outline-secondary' onClick={handleAddToList}>
             Must Read
         </Button>
     )
