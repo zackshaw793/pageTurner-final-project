@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import GetBooks from '/Users/zacharyshaw/Desktop/react-router boiler plate/src/Components/Home.js';
-import ReadingList from '/Users/zacharyshaw/Desktop/react-router boiler plate/src/Components/ReadingList.js';
-import SignUp from '/Users/zacharyshaw/Desktop/react-router boiler plate/src/Components/SignUp.js';
+import GetBooks from './Home';
+import ReadingList from './ReadingList';
+import SignUp from './SignUp';
 
 
 export default class Navigation extends React.Component {
