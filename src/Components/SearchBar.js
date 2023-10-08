@@ -4,7 +4,7 @@ import InputGroup  from 'react-bootstrap/InputGroup';
 import Card  from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
 
-
+// The SearchBar functionality is handled here and called in the Home component.
 
 const SearchBar = ({ onSearch }) => { 
    const [searchQuery, setSearchQuery] = useState('')
@@ -12,6 +12,8 @@ const SearchBar = ({ onSearch }) => {
    const handleSearch = () => { 
         onSearch(searchQuery);
    };
+
+   // The search bar is rendered and styled here. 
 
    return (
     <Card style={{ width: 'auto', 

@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 
 
+// Header for the Signup page. 
 
 const SignUpHeader = () => {
     return (

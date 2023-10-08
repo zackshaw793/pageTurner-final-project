@@ -9,7 +9,12 @@ import ToggleButton  from 'react-bootstrap/ToggleButton';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ReadingHeader from './ReadingHeader';
 
+// One source of truth for fetching data from mockAPI.
+
 const MOCK_API_URL = 'https://650cc34347af3fd22f67f87e.mockapi.io/test/mustreads'
+
+// ReadingList uses the useState and useEffect hooks to manage state.
+// The useState hook immediately posts the data stored in the mockAPI.
 
 const ReadingList = () => {
     const [readingList, setReadingList] = useState([]);
@@ -22,6 +27,8 @@ const ReadingList = () => {
         )
     }, []);
 
+    // Delete is handled.
+
     const handleDelete = (id) => {
         fetch(`${MOCK_API_URL}/${id}`, {
             method: 'DELETE',
@@ -29,6 +36,8 @@ const ReadingList = () => {
             setReadingList(readingList.filter((book) => book.id !== id));
         });
     };
+
+    // Favorite (PUT) is handled.
 
     const handleFavorite = (id, favorited) => {
         const updatedReadingList = readingList.map((book) => {
@@ -51,13 +60,15 @@ const ReadingList = () => {
     };
 
 
+    // The reading list is rendered here.  
+
 return (
     <div>
         <Container>
                 <Row>
                     <Col>
                         <ReadingHeader />
-                        <ul className='book-list' style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
+                        <ul className='book-list' style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', listStyle: 'none'}}>
                             {readingList.map((book) => (
                                 <li key={book.id}>
                                 <Card 

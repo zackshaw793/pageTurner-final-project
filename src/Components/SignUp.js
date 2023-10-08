@@ -3,6 +3,9 @@ import { Component } from 'react';
 import SignUpHeader from './SignUpHeader';
 import FooterComponent from './Footer';
 
+// The SignUp component is a static form that would theoretically be used to create a new user account.
+// I mostly wanted to display what this would look like in context. 
+
 export default class SignUp extends Component { 
     render() {
     return (

@@ -1,6 +1,8 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
+// A Header for the Home page.
+
 const HomeHeader = () => { 
     return (
         <div>

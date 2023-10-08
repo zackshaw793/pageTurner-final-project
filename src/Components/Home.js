@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import HomeHeader from './HomeHeader';
-import FooterComponent from './Footer';
 
 
 // One source of truth for the API_URL.
@@ -22,7 +21,8 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
         const [books, setBooks] = useState([]);
         const [readingList, setReadingList] = useState([]);
 
-    
+            // (GET)
+
             const fetchBooks = async (searchQuery) => { 
                 try {
                     const response = await fetch(API_URL + searchQuery)
@@ -76,7 +76,6 @@ const API_URL = 'https://openlibrary.org/search.json?title=';
                         </div>                    
                     </Col>
                 </Row>
-                <FooterComponent /> 
             </Container>
            
         )
